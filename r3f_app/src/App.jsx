@@ -35,7 +35,7 @@ function App() {
         rotation={ [ 0.1, 0, 0 ] }
         polar ={isMobile ? [ -0.2, 0.2 ] : [ -0.4, 0.2 ]}
         azimuth={isMobile ? [ -0.2, 0.2 ]:[ -1, 1 ] }
-        damping={ 0.5 }
+        damping={ 0.06 }
         snap>
 
           <primitive 
