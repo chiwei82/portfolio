@@ -90,7 +90,7 @@ function App() {
                   position={[2, -1, 0]}
                   distanceFactor={3}
                 >
-                  <img src="/Steve.gif" alt="Steve GIF" style={{ width: '100px' }} />
+                  <img src={`${import.meta.env.BASE_URL}Steve.gif`} alt="Steve GIF" style={{ width: '100px' }} />
               </Html>
           </Float>
       </PresentationControls>
