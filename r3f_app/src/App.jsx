@@ -75,7 +75,7 @@ function App() {
                 </primitive>
               
               <Text
-                  font="./TaipeiSansTCBeta_Bold.woff"
+                  font="./subset_TaipeiSansTCBeta_Bold.woff"
                   fontSize={ 0.8 }
                   position={ [ 1.5, 0.75, 0.75 ] }
                   rotation-y={ -Math.PI / 5 }
