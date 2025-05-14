@@ -13,11 +13,11 @@ root.render(
     <Canvas
       className="r3f"
       camera={{
-        fov: isMobile ? 120 : 60,
+        fov: isMobile ? 100 : 60,
         near: 0.1,
         far: 2000,
         position: [-3, 1.5, 4],
-        zoom: 1.5
+        zoom: isMobile ? 1.5: 2
       }}
     >
       <Suspense fallback={null}>
