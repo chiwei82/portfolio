@@ -22,7 +22,3 @@ body,
     border-radius: 20px;
     background: #000000;
 }
-
-.htmlScreen {
-  pointer-events: auto !important;
-}

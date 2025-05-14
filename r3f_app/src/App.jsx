@@ -10,7 +10,6 @@ function App() {
   const computer = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf')
   const [isMobile, setIsMobile] = useState(false)
   const [focusIframe, setFocusIframe] = useState(false)
-  const { camera } = useThree()
 
   const defaultPosition = new THREE.Vector3(-5, 2 , 5)      
   const focusPosition = new THREE.Vector3(-0.5, 2, 2.5)      
@@ -22,7 +21,7 @@ function App() {
     react.scene.traverse((child) => {
       if (child.isMesh && child.material && child.material.isMeshStandardMaterial) {
         const mat = child.material
-        mat.color.set('orange')       // 或自訂亮一點的色系
+        mat.color.set('orange')
         mat.metalness = 0
         mat.roughness = 1
         mat.emissive.set('black')
@@ -44,7 +43,7 @@ function App() {
   const reactRef = useRef()
   useFrame((state, delta) => {
     reactRef.current.rotation.y += delta * 2
- 
+
     const targetPosition = focusIframe ? focusPosition : defaultPosition
     const targetLookAt = focusIframe ? focusLookAt : defaultLookAt
 
@@ -79,7 +78,7 @@ function App() {
             scale={ 0.8 } 
           />
 
-          <Float speed={ isMobile ? 1 : 0.5 } rotationIntensity={ isMobile ? 1 : 0.5 } floatIntensity={ isMobile ? 1 :0.5 }>
+          <Float speed={ 0.5 } rotationIntensity={ 0.5 } floatIntensity={ 0.5 }>
                 <rectAreaLight
                     width={ 2.5 }
                     height={ 1.65 }
@@ -91,7 +90,7 @@ function App() {
                 
                 <primitive
                     object={ computer.scene }
-                    position-x={ - 1 }
+                    position-x={ - 0.6 }
                     position-y={ - 1.2 }
                     // rotation-x={ 0.13 }
                 >
@@ -99,7 +98,7 @@ function App() {
                       transform
                       wrapperClass="htmlScreen"
                       distanceFactor={isMobile ? 1 : 1.17}
-                      position={isMobile ? [-0.04, 1.4, -1.35] : [-0.01, 1.56, -1.4]}
+                      position={isMobile ? [-0.06, 1.4, -1.35] : [-0.01, 1.56, -1.4]}
                       scale={isMobile ? [1.15, 1.15, 1.15] : [1, 1, 1]}
                       rotation-x={-0.256}
                     >
@@ -111,7 +110,7 @@ function App() {
                           height: '670px',
                           position: 'absolute',
                           zIndex: 999,
-                          display: 'contents',     // ✅ 讓這層不影響尺寸與樣式
+                          display: 'contents',
                           pointerEvents: 'auto',
                         }}
                       >
@@ -124,7 +123,7 @@ function App() {
 
                 </primitive>
               
-              <Text
+              {!focusIframe && <Text
                   font="./subset_TaipeiSansTCBeta_Bold.woff"
                   fontSize={ 0.8 }
                   position={ [ 1.5, 0.75, 0.75 ] }
@@ -134,15 +133,30 @@ function App() {
                   color= "ivory"
               >
                   Hej 你好！🙌🏻
-              </Text>
+              </Text>}
+              
+              {!focusIframe && !isMobile && <Text
+                  font="./subset_TaipeiSansTCBeta_Bold.woff"
+                  fontSize={ 0.1 }
+                  position={ [ -3, 1.6, -1] } 
+                  maxWidth={ 3 }
+                  textAlign="center"
+                  color= "ivory"
+              >
+                  mouse hover to inspect ↘︎
+              </Text>}
 
-              <Html
-                  transform
-                  position={[ 1.75, 0.8, -2]}
-                  distanceFactor={3}
-                >
-                  <img src={`${import.meta.env.BASE_URL}Steve.gif`} alt="Steve GIF" style={{ width: '100px' }} />
-              </Html>
+              {isMobile && <Text
+                  font="./subset_TaipeiSansTCBeta_Bold.woff"
+                  fontSize={ 0.1 }
+                  position={ [ -2, 1.75, -1] } 
+                  maxWidth={ 3 }
+                  textAlign="center"
+                  color= "ivory"
+              >
+                  double click to zoom in ↘︎
+              </Text>}
+
           </Float>
       </PresentationControls>
       

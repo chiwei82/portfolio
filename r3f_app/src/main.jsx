@@ -17,7 +17,7 @@ root.render(
         near: 0.1,
         far: 2000,
         position: [-3, 1.5, 4],
-        zoom: isMobile ? 1.5: 2
+        zoom: 1.5
       }}
     >
       <Suspense fallback={null}>
