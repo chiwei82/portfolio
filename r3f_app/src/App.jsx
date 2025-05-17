@@ -105,17 +105,9 @@ function App() {
                       <div
                         onMouseEnter={!isMobile ? () => setFocusIframe(true) : undefined}
                         onMouseLeave={!isMobile ? () => setFocusIframe(false) : undefined}         
-                        style={{
-                          width: '1024px',
-                          height: '670px',
-                          position: 'absolute',
-                          zIndex: 999,
-                          display: 'contents',
-                          pointerEvents: 'auto',
-                        }}
+                        className="htmlScreen"
                       >
                         <iframe
-                          className="htmlScreen"
                           src="./cv.html"
                         />
                       </div>
@@ -138,12 +130,23 @@ function App() {
               {!focusIframe && !isMobile && <Text
                   font="./subset_TaipeiSansTCBeta_Bold.woff"
                   fontSize={ 0.1 }
-                  position={ [ -3, 1.6, -1] } 
+                  position={ [ -3, 1.75, -0.75] } 
                   maxWidth={ 3 }
                   textAlign="center"
                   color= "ivory"
               >
                   mouse hover to inspect ↘︎
+              </Text>}
+
+              {focusIframe && !isMobile && <Text
+                  font="./subset_TaipeiSansTCBeta_Bold.woff"
+                  fontSize={ 0.1 }
+                  position={ [ 1.75, 1.25, -1] } 
+                  maxWidth={ 3 }
+                  textAlign="center"
+                  color= "ivory"
+              >
+                  ↙︎scroll down for more contents
               </Text>}
 
               {isMobile && <Text
