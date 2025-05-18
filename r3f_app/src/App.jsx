@@ -2,6 +2,7 @@ import { Text, Float, PresentationControls, ContactShadows, useGLTF, Html } from
 import { useFrame } from '@react-three/fiber'
 import { useRef, useState, useEffect } from 'react'
 import * as THREE from 'three'
+import * as anime from 'animejs'
 import './App.css'
 
 function App() {

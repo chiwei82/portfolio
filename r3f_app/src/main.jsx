@@ -26,5 +26,6 @@ root.render(
     </Canvas>
 
     <Loader />
+    
   </>
 )
