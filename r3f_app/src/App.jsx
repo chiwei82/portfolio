@@ -103,7 +103,7 @@ function App() {
               >
                 <div
                   onMouseEnter={!isMobile ? () => setFocusIframe(true) : undefined}
-                  onMouseLeave={!isMobile ? () => setFocusIframe(false) : undefined}         
+                  onMouseLeave={!isMobile ? () => setFocusIframe(false) : undefined}
                 >
                   <iframe
                     src="./cv.html"
